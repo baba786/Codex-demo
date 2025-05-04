@@ -6,6 +6,10 @@ A demonstration of Wikimedia Design Codex components, specifically showcasing th
 
 This project demonstrates how to use the Wikimedia Design Codex Accordion component in a Vue.js application. The demo creates a simple FAQ page with expandable/collapsible sections.
 
+## Live Demo
+
+You can view the live demo at: https://baba786.github.io/Codex-demo/
+
 ## Setup
 
 ```bash
@@ -14,6 +18,9 @@ npm install
 
 # Start development server
 npm run serve
+
+# Build for production
+npm run build
 ```
 
 ## Features
