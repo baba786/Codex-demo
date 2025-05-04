@@ -1,12 +1,36 @@
 <template>
   <div class="app">
     <header>
-      <h1>Wikimedia Design Codex - Accordion Demo</h1>
+      <h1>Wikimedia Design Codex - Component Demo</h1>
     </header>
     
     <main>
+      <section class="button-container">
+        <h2>Button Component</h2>
+        <p>Below is an example of the Codex Button component:</p>
+        
+        <div class="button-group">
+          <CdxButton weight="primary" @click="showMessage = true">
+            Primary Button
+          </CdxButton>
+          
+          <CdxButton weight="normal" @click="showMessage = false">
+            Normal Button
+          </CdxButton>
+          
+          <CdxButton weight="quiet">
+            Quiet Button
+          </CdxButton>
+        </div>
+        
+        <div v-if="showMessage" class="message">
+          You clicked the primary button!
+        </div>
+      </section>
+      
       <section class="accordion-container">
-        <h2>Frequently Asked Questions</h2>
+        <h2>Accordion Component</h2>
+        <p>Below is an example of the Codex Accordion component for FAQs:</p>
         
         <CdxAccordion 
           v-for="(item, index) in faqItems" 
@@ -27,15 +51,17 @@
 </template>
 
 <script>
-import { CdxAccordion } from '@wikimedia/codex';
+import { CdxAccordion, CdxButton } from '@wikimedia/codex';
 
 export default {
   name: 'App',
   components: {
-    CdxAccordion
+    CdxAccordion,
+    CdxButton
   },
   data() {
     return {
+      showMessage: false,
       expandedItems: [0], // Default to first item expanded
       faqItems: [
         {
@@ -110,9 +136,35 @@ main {
   margin-bottom: 3rem;
 }
 
+.button-container,
+.accordion-container {
+  margin-bottom: 3rem;
+}
+
+.button-container h2,
 .accordion-container h2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
+  color: #202122;
+}
+
+.button-container p,
+.accordion-container p {
+  margin-bottom: 1.5rem;
+  color: #54595d;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #eaecf0;
+  border-radius: 4px;
   color: #202122;
 }
 
