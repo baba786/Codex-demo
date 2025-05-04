@@ -11,12 +11,10 @@
         <CdxAccordion 
           v-for="(item, index) in faqItems" 
           :key="index" 
+          :title="item.question"
           :is-expanded="expandedItems.includes(index)"
           @update:is-expanded="(expanded) => handleExpand(index, expanded)"
         >
-          <template #header>
-            {{ item.question }}
-          </template>
           <div v-html="item.answer"></div>
         </CdxAccordion>
       </section>
